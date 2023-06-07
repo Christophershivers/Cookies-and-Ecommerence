@@ -1,0 +1,32 @@
+﻿@model List<CartModel>
+
+    <style>
+        .space {
+            margin-bottom: 30px;
+        }
+
+        .margin-icons{
+            margin-top: 7px;
+            padding-right: 7px;
+        }
+    </style>
+
+    <li class="nav-item margin-icons" >
+        <a asp-area="" asp-controller="Cart" asp-action="MyCart"><i class="bi bi-cart-fill "></i></a>
+        <span class="badge rounded-pill badge-notification bg-danger">@ViewBag.cartTotal</span>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    <!--<button type="button" class="btn btn-primary space">
+        Profile <span class="badge badge-danger ms-2"></span>
+        <span class="visually-hidden">unread messages</span>
+    </button>
+    <h1>These are the items by Id and Quantity</h1>
+    @foreach(var cart in Model){
+       <p>item ID: @cart.ProductID QTY: @cart.Quantity</p>
+}-->

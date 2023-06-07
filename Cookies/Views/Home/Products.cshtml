@@ -1,0 +1,50 @@
+﻿@model List<ProductsModel>
+    @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+    @if(@ViewBag.list != null){
+        @foreach(var list in @ViewBag.list){
+            <li>@list</li>
+    
+        }
+    }
+@foreach(var product in Model){
+    <form method="post" asp-controller="Home" asp-action="Products">
+        <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="@product.Image" width="500" class="img-fluid" />
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <p class="card-text">@product.Description</p>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                <input type="hidden" name="ProductID" value="@product.ProductID" />
+            </div>
+        </div>
+    </form>
+}
+    <<!--script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("CartIconPartial", "Home")",
+
+            data: {},
+            cache: false,
+            async: false,
+
+            success: function (data) {
+                $('#badge').html(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('');
+            }
+        })
+    </script>-->
